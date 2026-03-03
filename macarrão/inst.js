@@ -1,0 +1,1 @@
+//git clone <link-do-repositorio-do-github> = baixar o repositorio para o
