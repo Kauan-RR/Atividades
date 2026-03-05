@@ -16,13 +16,14 @@
 
 const pessoa = {
 
-    aluno: {
+  aluno: {
 
-name:  "Kauan",
+    name: "Kauan",
 
-idade: 21,},
+    idade: 21,
+  },
 
-curso:  "Desenvolvimento de sistemas"
+  curso: "Desenvolvimento de sistemas"
 
 }
 
@@ -70,7 +71,7 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-pessoa.notas = [10,90,10,70]
+pessoa.notas = [10, 90, 10, 70]
 console.log(pessoa)
 console.log(`${pessoa.aluno.name} ${pessoa.notas} `)
 
@@ -103,14 +104,22 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-const listaDeAlunos = ["lista de alunos"];
-  
-  listaDeAlunos.push(pessoa.aluno, {name:pedro
-idade:10
-notas:10, 9, 10}
- );
-  
-  console.log(listaDeAlunos);
+const aluno2 = {
 
- 
+  name: "Maria",
+  idade: 19,
+  notas: [9, 8, 10]
+};
+
+const aluno3 = {
+
+  name: "Pedro",
+  idade: 21,
+  notas: [7, 6, 8]
+};
+
+const listaDeAlunos = [pessoa.aluno, aluno2, aluno3];
+
+console.log(listaDeAlunos[1].name);
+
 console.log("_______________________________");
