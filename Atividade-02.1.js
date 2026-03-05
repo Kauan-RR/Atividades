@@ -16,15 +16,19 @@
 
 const pessoa = {
 
+    aluno: {
+
 name:  "Kauan",
 
-idade: 21,
+idade: 21,},
 
 curso:  "Desenvolvimento de sistemas"
 
 }
 
 console.log(pessoa.name)
+
+
 console.log("_______________________________");
 
 
@@ -36,30 +40,9 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-
-
-const pessoa1 = {
-
-    name:  "Kauan",
-    
-    idade: 21,
-    
-    curso:  "Desenvolvimento de sistemas",
-
-    endereco:{
-
-        cidade: "Penha",
-    rua: "joão de freitas",
-        number: 840,
-    },
-    
-    }
-
-    console.log(pessoa1.endereco.cidade)
-
-
-
-
+pessoa.endereço = ["cidade:Penha", "rua:joão de freitas"];
+console.log(pessoa);
+console.log(pessoa.endereço[0])
 
 console.log("_______________________________");
 
@@ -72,31 +55,9 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-const pessoa2 = {
-
-    name:  "Kauan",
-    
-    idade: 21,
-    
-    curso:  "Desenvolvimento de sistemas",
-
-    endereco:{
-
-        cidade: "Penha",
-    rua: "joão de freitas",
-        number: 840,
-    },
-
-    habilidades: ["javascriopt", "c# basico"]
-
-
-    }
-
-    console.log(pessoa2.habilidades[0])
-
-
-
-
+pessoa.habilidades = ["aritimetica", "javascript"]
+console.log(pessoa)
+console.log(pessoa.habilidades[0])
 
 console.log("_______________________________");
 
@@ -109,6 +70,9 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+pessoa.notas = [10,90,10,70]
+console.log(pessoa)
+console.log(`${pessoa.aluno.name} ${pessoa.notas} `)
 
 console.log("_______________________________");
 
@@ -122,6 +86,10 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+pessoa.responsavel = ["Mãe: Priscila, Pai:Fabio"];
+console.log(pessoa)
+pessoa.responsavel = ["Mãe: Priscila"];//Foi retirado o pai da lista
+console.log(pessoa)
 
 console.log("_______________________________");
 
@@ -135,5 +103,14 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const listaDeAlunos = ["lista de alunos"];
+  
+  listaDeAlunos.push(pessoa.aluno, {name:pedro
+idade:10
+notas:10, 9, 10}
+ );
+  
+  console.log(listaDeAlunos);
 
+ 
 console.log("_______________________________");
