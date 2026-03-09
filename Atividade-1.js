@@ -15,7 +15,12 @@
 // d) Declare uma variável com "const" chamada "ANO_NASCIMENTO" e atribua o ano em que você nasceu.
 // e) Exiba as quatro variáveis no console.
 
-// → Seu código aqui:
+// → Seu código aqui: 
+var meuNome = "Kauan";
+var naoUsarVar = "Porque var tem escopo global e pode causar problemas de segurança e manutenção do código.";
+let minhaIdade = 21;
+const ANO_NASCIMENTO = 2002;
+console.log(meuNome, naoUsarVar, minhaIdade, ANO_NASCIMENTO);
 
 
 console.log("_______________________________");
@@ -31,6 +36,10 @@ console.log("_______________________________");
 // d) Exiba "fraseMoradia" e seu tipo (typeof) no console.
 
 // → Seu código aqui:
+let cidade = "Penha";
+let pais = "Brasil";
+let fraseMoradia = `Eu moro em ${cidade}, no ${pais}.`;
+console.log(fraseMoradia, typeof fraseMoradia);
 
 
 console.log("_______________________________");
@@ -44,6 +53,11 @@ console.log("_______________________________");
 // c) Exiba as duas variáveis e seus tipos (typeof).
 
 // → Seu código aqui:
+let maiorDeIdade = true;
+let temCNH = false;
+console.log(maiorDeIdade, typeof maiorDeIdade);
+console.log(temCNH, typeof temCNH);
+
 
 
 console.log("_______________________________");
@@ -58,6 +72,11 @@ console.log("_______________________________");
 // d) Explique (em um comentário) por que typeof null retorna "object".
 
 // → Seu código aqui:
+let apelido;
+let enderecoAtual = null;
+console.log(apelido, typeof apelido);
+console.log(enderecoAtual, typeof enderecoAtual);
+// O typeof null retorna "object" devido a um erro histórico na implementação do JavaScript, onde null foi representado como um tipo de objeto, embora seja um valor primitivo que representa a ausência de valor.      
 
 
 console.log("_______________________________");
@@ -76,6 +95,14 @@ console.log("_______________________________");
 // null
 // 3.14
 
+
+console.log(typeof 42);         // number
+console.log(typeof "texto");    // string
+console.log(typeof true);   // boolean
+console.log(typeof undefined);  // undefined
+console.log(typeof null);       // object (devido a um erro histórico)
+console.log(typeof 3.14);       // number
+
 console.log("_______________________________");
 
 
@@ -89,6 +116,14 @@ console.log("_______________________________");
 //    meço <altura>m e estou estudando JavaScript: <estudandoJS>."
 
 // → Seu código aqui:
+
+let nome = "Kauan";
+let idade = 21;
+let altura = 1.75;
+let cidade1 = "Penha";
+let estudandoJS = true;
+
+console.log(`Olá! Meu nome é ${nome}, tenho ${idade} anos, moro em ${cidade1}, meço ${altura} e estou estudando JavaScript: ${estudandoJS}.`);
 
 
 console.log("_______________________________");

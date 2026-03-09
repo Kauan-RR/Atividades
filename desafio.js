@@ -32,6 +32,8 @@ const letras1 = ['a', 'b', 'c', 'd', 'e', 'f'];
 
 const newarrey = [letras1[0], letras1[2], letras1[5]];
 console.log(newarrey)
+const newarrey2 = [letras1[4], letras1[5]];
+console.log(newarrey2);
 
 
 console.log("_______________________________");
@@ -42,6 +44,9 @@ console.log("_______________________________");
 // ------------------------------------------------------------
 const letras2 = ['a', 'b', 'c', 'd', 'e', 't'];
 // a) Crie um novo array que retorne a palavra "batata" ao ser exibido no console.
+
+const arreybatata = [letras2[1], letras2[0], letras2[5], letras2[0], letras2[5], letras2[0]];
+console.log(arreybatata.join(''));
 
 
 console.log("_______________________________");
@@ -55,6 +60,10 @@ const pessoa = { nome: 'Junin', idade: 22, cidade: 'Porto Alegre' };
 // b) Adicione uma nova propriedade 'curso' com valor 'Programação' por atribuição direta.
 
 // → Seu código aqui:
+
+console.log(pessoa.nome, pessoa.cidade);
+pessoa.curso = 'Prograação';
+console.log(pessoa.curso);
 
 
 console.log("_______________________________");
@@ -73,6 +82,9 @@ const perfil = {
 
 // → Seu código aqui:
 
+console.log(perfil.dados.nome, perfil.interesses[1]);
+perfil.interesses[0] = 'arte';
+console.log(perfil.interesses[0]);
 
 console.log("_______________________________");
 
@@ -85,6 +97,13 @@ console.log("_______________________________");
 // e os valores são os objetos de produto correspondentes (sem usar loops ou funções).
 
 // → Seu código aqui:
+
+const produtos = [{ id: 1, nome: 'Camiseta', preco: 29.99 },
+{ id: 2, nome: 'Calça', preco: 49.99 },
+{ id: 3, nome: 'Tênis', preco: 89.99 }];
+
+const catalogo = { 1: produtos[0], 2: produtos[1], 3: produtos[2] };
+console.log(catalogo);
 
 
 console.log("_______________________________");
@@ -99,5 +118,14 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const tarefas = [
+    { id: 1, titulo: 'Estudar JavaScript', concluida: false },
+    { id: 2, titulo: 'Fazer exercícios', concluida: false },
+    { id: 3, titulo: 'Revisar conceitos', concluida: false }
+];
 
+tarefas[1].concluida = true;
+console.log(tarefas);   
+const tarefasNaoConcluidas = [tarefas[0], tarefas[2]];
+console.log(tarefasNaoConcluidas);
 console.log("_______________________________");
