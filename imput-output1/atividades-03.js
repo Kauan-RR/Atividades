@@ -24,7 +24,7 @@
 // → Seu código aqui:
 
 
-let lerTeclado = require('readline-sync');
+import { question, questionInt, keyInYN } from 'readline-sync';
 
 console.log('iniciando o programa');
 console.info('atividade de hoje e sobre imput');
@@ -45,8 +45,8 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-const nameUser = lerTeclado.question('Digite seu nome:');
-const idadeUser = lerTeclado.questionInt('idade:');
+const nameUser = question('Digite seu nome:');
+const idadeUser = questionInt('idade:');
 console.log(`Olá, ${nameUser}, Você tem ${idadeUser} anos`);
 
 
@@ -62,15 +62,15 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-const cidade = lerTeclado.question('cidade:');
+const cidade = question('cidade:');
 
 const ficha = [
-    {name: 'kauan', idade: 21, cidade: 'curitiba'},]
+    { name: 'kauan', idade: 21, cidade: 'curitiba' },]
 
-    console.table(ficha);
+console.table(ficha);
 
 
-    
+
 
 
 console.log("_______________________________");
@@ -85,10 +85,10 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-const Perguntas = lerTeclado.keyInYN("Você gosta de programar ?");
-const Perguntas1 = lerTeclado.keyInYN("você comeu hoje ?");
+const Perguntas = keyInYN("Você gosta de programar ?");
+const Perguntas1 = keyInYN("você comeu hoje ?");
 
-console.log(`${Perguntas ? 'Gosta' : 'não Gosta' }, de programar e`, `${Perguntas1 ? 'comeu' : 'não comeu'} hoje`)
+console.log(`${Perguntas ? 'Gosta' : 'não Gosta'}, de programar e`, `${Perguntas1 ? 'comeu' : 'não comeu'} hoje`)
 
 
 
@@ -107,7 +107,7 @@ console.log("_______________________________");
 // → Seu código aqui:
 
 const comidas = [];
-comidas[0] = lerTeclado.question("qual sua comida preferida ?"), comidas[1] = lerTeclado.question("qaual a sua comida preferida ?"), comidas[2] = lerTeclado.question("qaual a sua comida preferida ?")
+comidas[0] = question("qual sua comida preferida ?"), comidas[1] = question("qaual a sua comida preferida ?"), comidas[2] = question("qaual a sua comida preferida ?")
 
 let comidaspreferidas = [comidas[0], comidas[1], comidas[2]];
 console.table(comidaspreferidas);
@@ -126,12 +126,12 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-const profissão = lerTeclado.question('digite sua profissao:');
-const name = lerTeclado.question("Digite seu nome:");
-const cidade1 = lerTeclado.question("diga sua cidade:");
+const profissão = question('digite sua profissao:');
+const name = question("Digite seu nome:");
+const cidade1 = question("diga sua cidade:");
 let cadastropessoal = [name, profissão, cidade1];
 
-console.log(`Me chamo ${cadastropessoal[0]}. ${cadastropessoal[1]} e moro na cidade de: ${cadastropessoal[2]} `);
+console.log(`Me chamo ${cadastropessoal[0]}. Profissão: ${cadastropessoal[1]} e moro na cidade de: ${cadastropessoal[2]} `);
 
 
 console.log("_______________________________");
@@ -152,6 +152,17 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const Usuario = [];
+Usuario[0] = { nome: question("digite seu nome:"), idade: questionInt("digite sua idade:"), enderenço: { cidade: question("digite sua cidade:"), rua: question("digite sua rua:"), numero: questionInt("digite o numero da sua casa:") } };
+Usuario[1] = { nome: question("digite seu nome:"), idade: questionInt("digite sua idade:"), enderenço: { cidade: question("digite sua cidade:"), rua: question("digite sua rua:"), numero: questionInt("digite o numero da sua casa:") } };
+Usuario[2] = { nome: question("digite seu nome:"), idade: questionInt("digite sua idade:"), enderenço: { cidade: question("digite sua cidade:"), rua: question("digite sua rua:"), numero: questionInt("digite o numero da sua casa:") } };
+
+const Usuarios = [Usuario[0], Usuario[1], Usuario[2]];
+const listaDeUsuarios = Usuarios;
+console.table(listaDeUsuarios);
+console.log(Usuario[1].name, Usuario[1].idade);
+console.log(Usuario[2].enderenço);
+console.log(Usuario[0].nome, Usuario[0].enderenço.rua);
 
 
 
@@ -170,6 +181,17 @@ console.log("_______________________________");
 // g) Exiba o nome e a 3ª nota do 1º aluno.
 
 // → Seu código aqui:
+
+const alunos = [];
+alunos[0] = { nome: question("digite o nome do aluno:"), notas: [questionInt("digite a primeira nota:"), questionInt("digite a segunda nota:"), questionInt("digite a terceira nota:")] };
+alunos[1] = { nome: question("digite o nome do aluno:"), notas: [questionInt("digite a primeira nota:"), questionInt("digite a segunda nota:"), questionInt("digite a terceira nota:")] };
+alunos[2] = { nome: question("digite o nome do aluno:"), notas: [questionInt("digite a primeira nota:"), questionInt("digite a segunda nota:"), questionInt("digite a terceira nota:")] };
+const turma = [alunos[0], alunos[1], alunos[2]];
+console.table(turma)
+console.log(alunos[1].nome, alunos[1].notas[0]);
+console.log(alunos[2].nome, alunos[2].notas[1]);
+console.log(alunos[0].nome, alunos[0].notas[2]);
+
 
 
 console.log("_______________________________");
@@ -192,6 +214,16 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const nomeProduto = question("digite o nome do produto:");
+const categoriaProduto = question("digite a categoria do produto:");
+const preçoProduto = questionInt("digite o preço do produto:");
+const quantidadeProduto = questionInt("digite a quantidade em estoque:");
+const disponivelProduto = keyInYN("o produto esta disponivel para venda ?");
+const produto = { nome: nomeProduto, categoria: categoriaProduto, preço: preçoProduto, quantidade: quantidadeProduto, disponivel: disponivelProduto };
+console.table(produto);
+console.log(`Produto: ${produto.nome} | Categoria: ${produto.categoria} | Estoque: ${produto.quantidade} un`);
+
+
 
 console.log("_______________________________");
 
@@ -207,3 +239,14 @@ console.log("_______________________________");
 // c) Exiba a lista com console.table().
 // d) Exiba somente o nome e preço do 2 medicamento.
 // e) Exiba somente o nome e se está em estoque o 1 medicamento.
+
+// → Seu código aqui:
+
+const medicamentos = []
+medicamentos[0] = { nome: question("digite o nome do mmedicamento:"), preco: questionInt("digite o preço do medicamento:"), emEstoque: keyInYN("o medicamento esta em estoque ?") };
+medicamentos[1] = { nome: question("digite o nome do mmedicamento:"), preco: questionInt("digite o preço do medicamento:"), emEstoque: keyInYN("o medicamento esta em estoque ?") };
+const estoqueFarmacia = [];
+estoqueFarmacia.push(medicamentos[0], medicamentos[1]);
+console.table(estoqueFarmacia);
+console.log(medicamentos[1].nome, medicamentos[1].preco);
+console.log(medicamentos[0].nome, medicamentos[0].emEstoque ? "em estoque" : "não em estoque");
