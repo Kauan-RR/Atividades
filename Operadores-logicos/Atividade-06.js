@@ -11,8 +11,7 @@
 // Dica: Ao terminar um exercício, comente-o. Assim os dados
 //       não serão solicitados novamente.
 // ============================================================
-
-
+let lerTeclado = require('readline-sync');
 // ------------------------------------------------------------
 // EXERCÍCIO 1 – Tabela verdade do &&
 // ------------------------------------------------------------
@@ -27,6 +26,17 @@
 //   d) false && false
 
 // → Seu código aqui:
+
+let combinação1 = true && true;
+let combinação2 = true && false;
+let combinação3 = false && true;
+let combinação4 = false && false;
+console.log("true && true → ",combinação1);  
+console.log("true && false →",combinação2);
+console.log("false && true →",combinação3); 
+console.log("false && false →",combinação4);
+
+
 
 
 console.log("_______________________________");
@@ -47,6 +57,19 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let combinação8 =  true || true;
+let combinação7 = true || false;
+let combinação6 = false || true;
+let combinação5 = false || false;
+console.log("true || true → ",combinação8);  
+console.log("true || false→",combinação7);
+console.log("false || true→",combinação6); 
+console.log("false || false→",combinação5);
+
+
+
+
+
 
 console.log("_______________________________");
 
@@ -63,8 +86,18 @@ console.log("_______________________________");
 // → Seu código aqui:
 
 
-console.log("_______________________________");
+let sistemaActive = true;
+let modoManutenção = !true;
+let lugarVago = false;
+let lugarOcupado = !false;
 
+console.log(sistemaActive, modoManutenção, lugarVago, lugarOcupado);
+
+
+
+
+
+console.log("_______________________________");
 
 // ------------------------------------------------------------
 // EXERCÍCIO 4 – Combinando && com operadores relacionais
@@ -77,6 +110,24 @@ console.log("_______________________________");
 // e) Exiba o IMC e os três resultados booleanos com template literal. Cada imc em um console.log() individual.
 
 // → Seu código aqui:
+
+let qualSeupeso = lerTeclado.question("qual seu peso ?");
+let qualSuaAltura = lerTeclado.questionInt("qual sua altura ?");
+console.log(qualSeupeso);
+console.log(qualSuaAltura);
+const imc = (`${qualSeupeso/qualSuaAltura**2}`);
+console.log(imc);
+
+const usuario = {
+};
+
+
+console.log(usuario.imcAbaixoDoPeso, usuario.imcAcimaDoPeso, usuario.imcNormal);
+
+
+
+
+
 
 
 console.log("_______________________________");

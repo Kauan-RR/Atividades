@@ -24,7 +24,7 @@
 // → Seu código aqui:
 
 
-import { question, questionInt, keyInYN } from 'readline-sync';
+
 
 console.log('iniciando o programa');
 console.info('atividade de hoje e sobre imput');
