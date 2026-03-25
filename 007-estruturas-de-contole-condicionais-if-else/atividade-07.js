@@ -12,6 +12,7 @@
 //       não serão solicitados novamente.
 // ============================================================
 
+let lerTeclado = require('readline-sync');
 
 // ------------------------------------------------------------
 // EXERCÍCIO 1 – If simples
@@ -21,6 +22,14 @@
 //    Mas se "pontos" for maior que 200, exiba somente: "Nível máximo alcançado!"
 
 // → Seu código aqui:
+
+let pontos = 120 
+
+if(pontos > 100){
+    console.log("Nível alcançado!")
+} else if (pontos > 200){
+    console.log("Nível máximo alcançado!")
+} 
 
 
 console.log("_______________________________");
@@ -36,6 +45,16 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let hora = 14 
+
+if(hora < 12){
+    console.log("Bom dia!")
+} else if (hora < 18){
+    console.log("Boa tarde!")
+} else {
+    console.log("Boa noite!")
+}
+
 
 console.log("_______________________________");
 
@@ -49,6 +68,15 @@ console.log("_______________________________");
 //    Senão, exiba: "Jovem".
 
 // → Seu código aqui:
+
+let idade = lerTeclado.questionInt("qual sua idade ?");
+if(idade >=18){
+    console.log("Adulto")
+} else if (idade <12){
+    console.log("Criança")
+} else {
+    console.log("Jovem")
+};
 
 
 console.log("_______________________________");
@@ -67,6 +95,20 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let notaAluno = 6.8
+let status 
+if (notaAluno >=9){
+    status = "Aprovado com mérito"
+} else if (notaAluno >=7){
+    status = "Aprovado"
+} else if (notaAluno >=5){
+    status = "Recuperação"
+} else if (notaAluno <5){
+    status = "Recuperação"
+};
+
+console.log(notaAluno, status);
+
 
 console.log("_______________________________");
 
@@ -84,6 +126,18 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let temperaturaAtual = lerTeclado.questionFloat("Qual a temperatura atual ?");
+if(temperaturaAtual <10){
+    console.log("Muito frio")
+} else if(temperaturaAtual >=10 && temperaturaAtual< 18){
+    console.log("Frio")
+} else if(temperaturaAtual >=18 && temperaturaAtual <=25){
+    console.log("Agradável")
+} else if(temperaturaAtual >25 && temperaturaAtual <=35){
+    console.log("Quente")
+} else if(temperaturaAtual >35){
+    console.log("Muito quente")
+};
 
 console.log("_______________________________");
 
@@ -104,6 +158,28 @@ console.log("_______________________________");
 // → Seu código aqui:
 
 
+const cliente ={
+    nome: lerTeclado.question("Qual seu nome ?"),
+    possuiIngresso: lerTeclado.keyInYN("Tem ingresso ?"),
+    idade1: lerTeclado.questionInt("Qual sua idade ?")
+
+}
+
+    
+    console.log(cliente.nome, cliente.possuiIngresso, cliente.idade1);
+if(!cliente.possuiIngresso){
+    console.log(`${cliente.nome} você não possui ingresso. Dirija-se à bilheteria.`)
+} else {
+     if (cliente.idade1 <18){
+        console.log("Meia-entrada: menor de idade.")
+    } else if (cliente.idade1 >=60){
+        console.log("Meia-entrada: melhor idade.")
+    } else {
+        console.log("Entrada inteira.")
+    }
+}
+
+
 console.log("_______________________________");
 
 
@@ -121,6 +197,19 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+
+
+const motorista = { 
+    nome1: lerTeclado.question("Qual seu nome ?"),
+    idade2: lerTeclado.questionInt("Qual sua idade ?"),
+    habilitação: lerTeclado.keyInYN("Possui habilitação ?")
+}
+console.log(motorista.nome1, motorista.idade2, motorista.habilitação);
+if(motorista.idade2 >=21 && motorista.habilitação ){
+    console.log(`${motorista.nome1}, você pode alugar o veículo`);
+} else {
+    console.log(`${motorista.nome1}, você não atende aos requisitos.`)
+};
 
 console.log("_______________________________");
 
