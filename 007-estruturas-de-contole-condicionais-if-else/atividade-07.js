@@ -95,7 +95,7 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-let notaAluno = 6.8
+let notaAluno = 9
 let status 
 if (notaAluno >=9){
     status = "Aprovado com mérito"
@@ -103,12 +103,11 @@ if (notaAluno >=9){
     status = "Aprovado"
 } else if (notaAluno >=5){
     status = "Recuperação"
-} else if (notaAluno <5){
-    status = "Recuperação"
+} else {
+     status = "Reprovado"
 };
 
-console.log(notaAluno, status);
-
+console.log(`A nota do aluno foi ${notaAluno} portanto o aluno esta ${status}`)
 
 console.log("_______________________________");
 
@@ -225,6 +224,18 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let usuario = {
+    estudante: lerTeclado.keyInYN(" Você e um estudante ?"),
+    idoso: lerTeclado.keyInYN("Você e um idoso com mais de 60 anos ?")
+};
+
+if(usuario.estudante || usuario.idoso){
+    console.log("Desconto de 50% aplicado!");
+
+} else{
+    console.log("Sem desconto. Preço cheio.")
+};
+
 
 console.log("_______________________________");
 
@@ -246,6 +257,24 @@ console.log("_______________________________");
 // e) Exiba uma mensagem final: "<nome>: <situação> (média: <média>)"
 
 // → Seu código aqui:
+
+const aluno = {}
+aluno.nomeDoaluno = lerTeclado.question("Digite seu nome:");
+aluno.notaDaprova1 = lerTeclado.question("Digite a nota da prova 1:");
+aluno.notaDaprova2 = lerTeclado.question("Digite a nota da prova 2:");
+console.log(aluno.nomeDoaluno,aluno.notaDaprova1,aluno.notaDaprova2);
+(media = (aluno.notaDaprova1 + aluno.notaDaprova2) /2)
+aluno.media = media;
+if(media >=7){
+    console.log("Aprovado")
+} else if(media >=5){
+    console.log("Em recuperação")
+} else{
+    console.log("Reprovado")
+};
+
+console.table(aluno);
+
 
 
 console.log("_______________________________");
@@ -270,5 +299,26 @@ console.log("_______________________________");
 // g) Chame o professor para realizar alguns testes 🫡
 
 // → Seu código aqui:
+
+
+let usuario1 = lerTeclado.questionFloat("Me informe um numero:");
+let usuario2 = lerTeclado.questionFloat("Me informe um numero:")
+console.log(usuario1, usuario2)
+let usuario3 = lerTeclado.questionInt("Escolha uma operação digitando um número: 1 Soma , 2 Subtração , 3 – Multiplicação , 4 – Divisão ");
+console.log(usuario3);
+const calculo = {
+    numeroA: usuario1,
+    numeroB: usuario2,
+    operacao: usuario3,
+    simbolo: "/"
+};
+let resultado
+if(calculo.operacao){
+    calculo.simbolo = "/"
+    resultado = calculo.numeroA / calculo.numeroB 
+    console.log(resultado)
+} else{
+
+}
 
 console.log("_______________________________");
