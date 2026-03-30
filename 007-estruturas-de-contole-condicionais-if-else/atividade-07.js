@@ -23,13 +23,13 @@ let lerTeclado = require('readline-sync');
 
 // → Seu código aqui:
 
-let pontos = 120 
+let pontos = 120
 
-if(pontos > 100){
+if (pontos > 100) {
     console.log("Nível alcançado!")
-} else if (pontos > 200){
+} else if (pontos > 200) {
     console.log("Nível máximo alcançado!")
-} 
+}
 
 
 console.log("_______________________________");
@@ -45,11 +45,11 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-let hora = 14 
+let hora = 14
 
-if(hora < 12){
+if (hora < 12) {
     console.log("Bom dia!")
-} else if (hora < 18){
+} else if (hora < 18) {
     console.log("Boa tarde!")
 } else {
     console.log("Boa noite!")
@@ -70,9 +70,9 @@ console.log("_______________________________");
 // → Seu código aqui:
 
 let idade = lerTeclado.questionInt("qual sua idade ?");
-if(idade >=18){
+if (idade >= 18) {
     console.log("Adulto")
-} else if (idade <12){
+} else if (idade < 12) {
     console.log("Criança")
 } else {
     console.log("Jovem")
@@ -96,15 +96,15 @@ console.log("_______________________________");
 // → Seu código aqui:
 
 let notaAluno = 9
-let status 
-if (notaAluno >=9){
+let status
+if (notaAluno >= 9) {
     status = "Aprovado com mérito"
-} else if (notaAluno >=7){
+} else if (notaAluno >= 7) {
     status = "Aprovado"
-} else if (notaAluno >=5){
+} else if (notaAluno >= 5) {
     status = "Recuperação"
 } else {
-     status = "Reprovado"
+    status = "Reprovado"
 };
 
 console.log(`A nota do aluno foi ${notaAluno} portanto o aluno esta ${status}`)
@@ -126,15 +126,15 @@ console.log("_______________________________");
 // → Seu código aqui:
 
 let temperaturaAtual = lerTeclado.questionFloat("Qual a temperatura atual ?");
-if(temperaturaAtual <10){
+if (temperaturaAtual < 10) {
     console.log("Muito frio")
-} else if(temperaturaAtual >=10 && temperaturaAtual< 18){
+} else if (temperaturaAtual >= 10 && temperaturaAtual < 18) {
     console.log("Frio")
-} else if(temperaturaAtual >=18 && temperaturaAtual <=25){
+} else if (temperaturaAtual >= 18 && temperaturaAtual <= 25) {
     console.log("Agradável")
-} else if(temperaturaAtual >25 && temperaturaAtual <=35){
+} else if (temperaturaAtual > 25 && temperaturaAtual <= 35) {
     console.log("Quente")
-} else if(temperaturaAtual >35){
+} else if (temperaturaAtual > 35) {
     console.log("Muito quente")
 };
 
@@ -157,21 +157,21 @@ console.log("_______________________________");
 // → Seu código aqui:
 
 
-const cliente ={
+const cliente = {
     nome: lerTeclado.question("Qual seu nome ?"),
     possuiIngresso: lerTeclado.keyInYN("Tem ingresso ?"),
     idade1: lerTeclado.questionInt("Qual sua idade ?")
 
 }
 
-    
-    console.log(cliente.nome, cliente.possuiIngresso, cliente.idade1);
-if(!cliente.possuiIngresso){
+
+console.log(cliente.nome, cliente.possuiIngresso, cliente.idade1);
+if (!cliente.possuiIngresso) {
     console.log(`${cliente.nome} você não possui ingresso. Dirija-se à bilheteria.`)
 } else {
-     if (cliente.idade1 <18){
+    if (cliente.idade1 < 18) {
         console.log("Meia-entrada: menor de idade.")
-    } else if (cliente.idade1 >=60){
+    } else if (cliente.idade1 >= 60) {
         console.log("Meia-entrada: melhor idade.")
     } else {
         console.log("Entrada inteira.")
@@ -198,13 +198,13 @@ console.log("_______________________________");
 
 
 
-const motorista = { 
+const motorista = {
     nome1: lerTeclado.question("Qual seu nome ?"),
     idade2: lerTeclado.questionInt("Qual sua idade ?"),
     habilitação: lerTeclado.keyInYN("Possui habilitação ?")
 }
 console.log(motorista.nome1, motorista.idade2, motorista.habilitação);
-if(motorista.idade2 >=21 && motorista.habilitação ){
+if (motorista.idade2 >= 21 && motorista.habilitação) {
     console.log(`${motorista.nome1}, você pode alugar o veículo`);
 } else {
     console.log(`${motorista.nome1}, você não atende aos requisitos.`)
@@ -229,10 +229,10 @@ let usuario = {
     idoso: lerTeclado.keyInYN("Você e um idoso com mais de 60 anos ?")
 };
 
-if(usuario.estudante || usuario.idoso){
+if (usuario.estudante || usuario.idoso) {
     console.log("Desconto de 50% aplicado!");
 
-} else{
+} else {
     console.log("Sem desconto. Preço cheio.")
 };
 
@@ -262,14 +262,14 @@ const aluno = {}
 aluno.nomeDoaluno = lerTeclado.question("Digite seu nome:");
 aluno.notaDaprova1 = lerTeclado.question("Digite a nota da prova 1:");
 aluno.notaDaprova2 = lerTeclado.question("Digite a nota da prova 2:");
-console.log(aluno.nomeDoaluno,aluno.notaDaprova1,aluno.notaDaprova2);
-(media = (aluno.notaDaprova1 + aluno.notaDaprova2) /2)
+console.log(aluno.nomeDoaluno, aluno.notaDaprova1, aluno.notaDaprova2);
+(media = (aluno.notaDaprova1 + aluno.notaDaprova2) / 2)
 aluno.media = media;
-if(media >=7){
+if (media >= 7) {
     console.log("Aprovado")
-} else if(media >=5){
+} else if (media >= 5) {
     console.log("Em recuperação")
-} else{
+} else {
     console.log("Reprovado")
 };
 
@@ -310,15 +310,35 @@ const calculo = {
     numeroA: usuario1,
     numeroB: usuario2,
     operacao: usuario3,
-    simbolo: "/"
+    simbolo: ""
 };
 let resultado
-if(calculo.operacao){
-    calculo.simbolo = "/"
-    resultado = calculo.numeroA / calculo.numeroB 
+if (calculo.operacao == 1) {
+    calculo.simbolo = "+"
+    resultado = calculo.numeroA + calculo.numeroB
     console.log(resultado)
-} else{
-
+} else if (calculo.operacao == 2) {
+    calculo.simbolo = "-"
+    resultado = calculo.numeroA - calculo.numeroB
+    console.log(resultado)
+} else if (calculo.operacao == 3) {
+    calculo.simbolo = "*"
+    resultado = calculo.numeroA * calculo.numeroB
+    console.log(resultado)
+} else if (calculo.operacao == 4) {
+    calculo.simbolo = "/"
+    resultado = calculo.numeroA / calculo.numeroB
+    console.log(resultado);
+    if (calculo.numeroB == 0) {
+        console.log("Erro: Divisão por zero não é permitida.")
+    }
+} else {
+    resultado = calculo.numeroA / calculo.numeroB
+    console.log(resultado);
 }
+if (resultado !== undefined) {
+    console.log(`${calculo.numeroA} ${calculo.simbolo} ${calculo.numeroB} = ${resultado}`);
+}
+
 
 console.log("_______________________________");
