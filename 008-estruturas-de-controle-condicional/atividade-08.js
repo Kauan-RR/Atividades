@@ -243,35 +243,34 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-const produto = {
-    nome: lerTeclado.question("Nome do produto: "),
-    categoria: lerTeclado.questionInt("Digite um numero de 1 a 4 para a categoria do produto: 1 – Eletrônico | 2 – Vestuário | 3 – Alimento | 4 – Livro "),
-    preço: lerTeclado.questionFloat("Digite o preço: ")
+// const produto = {
+//     nome: lerTeclado.question("Nome do produto: "),
+//     categoria: lerTeclado.questionInt("Digite um numero de 1 a 4 para a categoria do produto: 1 – Eletrônico | 2 – Vestuário | 3 – Alimento | 4 – Livro :"),
+//     preço: lerTeclado.questionFloat("Digite o preço: ")
 
-};
-switch (produto.categoria){
-    case 1:
-    descricaoCategoria = "Eletrônico" 
-    garantia = "12 meses"
-    console.log(produto.categoria.descricaoCategoria, produto.categoria.garantia)
-    break;
-    case 2: 
-    descricaoCategoria = "Vestuário"  
-    garantia = "Troca em 30 dias"
-    break;
-    case 3:
-    descricaoCategoria = "Alimento"  
-    garantia = "Ver validade"
-    break;
-    case 4:  
-    descricaoCategoria = "Livro"
-    garantia = "Sem garantia"
-    break;
-    default:
-    descricaoCategoria = "Categoria invalida"  
-    garantia = "Sem garantia"
-}
-console.table(produto);
+// };
+// switch (produto.categoria) {
+//     case 1:
+//         produto.descricaoCategoria = "Eletrônico"
+//         produto.garantia = "12 meses"
+//         break;
+//     case 2:
+//         produto.descricaoCategoria = "Vestuário"
+//         produto.garantia = "Troca em 30 dias"
+//         break;
+//     case 3:
+//         produto.descricaoCategoria = "Alimento"
+//         produto.garantia = "Ver validade"
+//         break;
+//     case 4:
+//         produto.descricaoCategoria = "Livro"
+//         produto.garantia = "Sem garantia"
+//         break;
+//     default:
+//         produto.descricaoCategoria = "Categoria invalida"
+//         produto.garantia = "Sem garantia"
+// }
+// console.table(produto);
 
 
 console.log("_______________________________");
@@ -294,6 +293,41 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+// let nome = lerTeclado.question("Digite seu nome:")
+// const nota = {
+//     nota1: lerTeclado.questionInt("Digite sua nota de 0 a 10:")
+// }
+// switch (nota.nota1) {
+//     case 10:
+//     case 9:
+//         nota.conceito = "A"
+//         nota.mensagem = "Excelente!"
+//         break;
+//     case 8:
+//     case 7:
+//         nota.conceito = "B"
+//         nota.mensagem = "Muito bom!"
+//         break;
+//     case 6:
+//     case 5:
+//         nota.conceito = "C"
+//         nota.mensagem = "Suficiente."
+//         break;
+//     case 4:
+//     case 3:
+//         nota.conceito = "D"
+//         nota.mensagem = "Em recuperação."
+//         break;
+//     case 2:
+//     case 1:
+//     case 0:
+//         nota.conceito = "F"
+//         nota.mensagem = "Reprovado."
+//         break;
+//     default:
+//         "Nota invalida"
+// }
+// console.log(`${nome} - ${nota.nota1} | Conceito:${nota.conceito} | ${nota.mensagem}`);
 
 console.log("_______________________________");
 
@@ -312,6 +346,42 @@ console.log("_______________________________");
 //    No default, exiba: "Operação inválida."
 
 // → Seu código aqui:
+
+// let number1 = lerTeclado.questionFloat("Digite um numero:");
+// let number2 = lerTeclado.questionFloat("Digite um numero:");
+// const operações = {
+//     1: "Soma",
+//     2: "Subtração",
+//     3: "Multiplicação",
+//     4: "Divisão",
+//     5: "Resto"
+// };
+// console.table(operações);
+// let operação = lerTeclado.questionInt("Escolha uma operação: ")
+// switch (operação) {
+//     case 1:
+//         console.log(number1 + number2);
+//         break;
+//     case 2:
+//         console.log(number1 - number2);
+//         break;
+//     case 3:
+//         console.log(number1 * number2);
+//         break;
+//     case 4:
+//         if (number2 === 0) {
+//             console.log("Erro: divisão por zero não é permitida.");
+
+//         } else {
+//             console.log(number1 / number2);
+//         }
+//         break;
+//     case 5:
+//         console.log(number1 % number2);
+//         break;
+//     default:
+//         console.log("operação invalida");
+// };
 
 
 console.log("_______________________________");
