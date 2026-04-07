@@ -1,4 +1,3 @@
-// Aluno: Kauan Ribeiro Rodrigues
 // ============================================================
 //   ATIVIDADE AVALIATIVA N5
 //   Módulos: Operadores e Estruturas Condicionais (if/else, switch/case)
@@ -220,7 +219,7 @@ console.log(`
                 |   Orçamento: ${orcamento}                   |
                 |   Destino  : ${destino}                     |
                 ===============================================`);
-
+               
 console.log(`Boa viagem, ${nomeViajante}  ! ${destino} espera por você.`)
 let Econômico = "Dica: procure voos com antecedência e use hostels ou Airbnb!"
 let Moderado = "Dica: hotéis 3 estrelas e pacotes combinados são ótimas opções!"
