@@ -212,58 +212,58 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-const cardapio = {
-    1: { nome: "X-Burguer", preco: 22 },
-    2: { nome: "X-Frango", preco: 20 },
-    3: { nome: "X-Veggie", preco: 18 },
-    4: { nome: "Combo (lanche + batata + refrigerante)", preco: 35 },
-    5: { adicionais: "Batata frita", preco1: 8 },
-    6: { adicionais: "Refrigerante", preco1: 5 }
-};
-const carrinho = [];
-let continuar = true;
-nome = lerTeclado.question("Digite seu nome:");
-while (continuar) {
-    console.table(cardapio);
-    numerolanche = lerTeclado.questionFloat("Digite o número do lanche (digite 0 para finalizar o pedido):");
-    if (numerolanche === 0) {
-        continuar = false;
-    } else {
-        let querbatata = false;
-        let querrefrigerante = false;
-        if (numerolanche !== 4) {
-            querbatata = lerTeclado.keyInYN("Quer batata frita?");
-            querrefrigerante = lerTeclado.keyInYN("Quer refrigerante?");
-        } else {
-            console.log("O combo já inclui batata frita e refrigerante.");
-            querbatata = true;
-            querrefrigerante = true;
-        }
+// const cardapio = {
+//     1: { nome: "X-Burguer", preco: 22 },
+//     2: { nome: "X-Frango", preco: 20 },
+//     3: { nome: "X-Veggie", preco: 18 },
+//     4: { nome: "Combo (lanche + batata + refrigerante)", preco: 35 },
+//     5: { adicionais: "Batata frita", preco1: 8 },
+//     6: { adicionais: "Refrigerante", preco1: 5 }
+// };
+// const carrinho = [];
+// let continuar = true;
+// nome = lerTeclado.question("Digite seu nome:");
+// while (continuar) {
+//     console.table(cardapio);
+//     numerolanche = lerTeclado.questionFloat("Digite o número do lanche (digite 0 para finalizar o pedido):");
+//     if (numerolanche === 0) {
+//         continuar = false;
+//     } else {
+//         let querbatata = false;
+//         let querrefrigerante = false;
+//         if (numerolanche !== 4) {
+//             querbatata = lerTeclado.keyInYN("Quer batata frita?");
+//             querrefrigerante = lerTeclado.keyInYN("Quer refrigerante?");
+//         } else {
+//             console.log("O combo já inclui batata frita e refrigerante.");
+//             querbatata = true;
+//             querrefrigerante = true;
+//         }
 
-        const pedido = {
-            nome: nome,
-            numerolanche: numerolanche,
-            querbatata: querbatata,
-            querrefrigerante: querrefrigerante,
-            total: cardapio[numerolanche].preco + (querbatata ? cardapio[5].preco1 : 0) + (querrefrigerante ? cardapio[6].preco1 : 0)
-        };
-        carrinho.push(pedido);
-        console.log("lanche adicionado ao carrinho!\n");
-    }
-}
-if (carrinho.length > 0) {
-    console.log(`\n--- resumo do pedido de ${nome.toUpperCase()} ---`);
-    console.table(carrinho);
-    const totalGeral = carrinho.reduce((soma, item) => soma + item.total, 0);
-    console.log(`Total geral: R$ ${totalGeral.toFixed(2)}`);
-} else {
-    console.log("Nenhum lanche foi pedido.");
-};
-
-
+//         const pedido = {
+//             nome: nome,
+//             numerolanche: numerolanche,
+//             querbatata: querbatata,
+//             querrefrigerante: querrefrigerante,
+//             total: cardapio[numerolanche].preco + (querbatata ? cardapio[5].preco1 : 0) + (querrefrigerante ? cardapio[6].preco1 : 0)
+//         };
+//         carrinho.push(pedido);
+//         console.log("lanche adicionado ao carrinho!\n");
+//     }
+// }
+// if (carrinho.length > 0) {
+//     console.log(`\n--- resumo do pedido de ${nome.toUpperCase()} ---`);
+//     console.table(carrinho);
+//     const totalGeral = carrinho.reduce((soma, item) => soma + item.total, 0);
+//     console.log(`Total geral: R$ ${totalGeral.toFixed(2)}`);
+// } else {
+//     console.log("Nenhum lanche foi pedido.");
+// };
 
 
-console.log("_______________________________");
+
+
+// console.log("_______________________________");
 
 
 // ------------------------------------------------------------
@@ -288,5 +288,28 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+// const usuraio = {
+//     corSemaforo: lerTeclado.question("Digite a cor atual do semáforo (verde, amarelo ou vermelho):"),
+//     velocidade: lerTeclado.questionFloat("Digite a velocidade atual do veículo em km/h:")
+// };
 
-console.log("_______________________________");
+// if (usuraio.corSemaforo === "verde") {
+//     if (usuraio.corSemaforo === "verde" && usuraio.velocidade <= 60) {
+//         console.log("Tudo certo. Pode seguir.");
+//     } else if (usuraio.corSemaforo === "verde" && usuraio.velocidade > 60) {
+//         console.log("Atenção: acima do limite no sinal verde.");
+//     }
+// } else if (usuraio.corSemaforo === "amarelo") {
+//     console.log("Ainda da tempo passa rapido ou reduza e pare, para uma melhor segurança.");
+// } else if (usuraio.corSemaforo === "vermelho") {
+//     if (usuraio.corSemaforo === "vermelho" && usuraio.velocidade > 0) {
+//         console.log("Parabens, você acabou de levar uma multa seu jumento.");
+//     } else if (usuraio.corSemaforo === "vermelho" && usuraio.velocidade === 0) {
+//         console.log("Isso ai, agora espere o sinal e verde e mete marcha.");
+//     }
+// } else
+//     console.log("Cor invalida, por favor digite verde, amarelo ou vermelho.");
+
+
+
+// console.log("_______________________________");
