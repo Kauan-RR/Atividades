@@ -407,6 +407,7 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+
 // const loja = {
 //     nome: "TechShop",
 //     saldo: 0
@@ -447,6 +448,4 @@ console.log("_______________________________");
 
 //     default:
 //         console.log("Opção inválida.");
-// }
-
 console.log("_______________________________");
