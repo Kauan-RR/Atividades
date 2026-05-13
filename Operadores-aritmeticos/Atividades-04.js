@@ -1,4 +1,4 @@
-    // ============================================================
+// ============================================================
 //   ATIVIDADE 04 – Operadores Aritméticos em JavaScript
 // ============================================================
 // Instruções: resolva cada exercício no espaço indicado.
@@ -56,9 +56,9 @@ console.log("_______________________________");
 
 let largura = 8
 let altura = 5
-let area = largura*altura;
+let area = largura * altura;
 console.log(area);
-let perimetro = 2*largura+2*altura
+let perimetro = 2 * largura + 2 * altura
 console.log(perimetro);
 console.log(`Retângulo | Largura: ${largura} | Altura: ${altura} | Área: ${area} | Perímetro: ${perimetro}`);
 
@@ -83,9 +83,9 @@ console.log("_______________________________");
 
 let preçoOriginal = 250
 let opercentualDedesconto = 15
-let valorDesconto = preçoOriginal*(opercentualDedesconto/100);
+let valorDesconto = preçoOriginal * (opercentualDedesconto / 100);
 console.log(valorDesconto);
-let preçoFinal = preçoOriginal-opercentualDedesconto;
+let preçoFinal = preçoOriginal - opercentualDedesconto;
 console.log(preçoFinal);
 console.log(`Preço original: R$ ${preçoOriginal.toFixed(2)} | Desconto: R$ ${valorDesconto.toFixed(2)} | Preço final: R$ ${preçoFinal.toFixed(2)}`)
 
@@ -107,15 +107,15 @@ console.log("_______________________________");
 // → Seu código aqui:
 
 let pontos = 100
-pontos+=50
+pontos += 50
 console.log(pontos);
-pontos-=30
+pontos -= 30
 console.log(pontos);
-pontos*=2
+pontos *= 2
 console.log(pontos);
-pontos/=4
+pontos /= 4
 console.log(pontos);
-console.log(`Pontos após Adição: ${pontos+=50}, subtração: ${pontos-=30}, multiplicação: ${pontos*=2}, divisão: ${pontos/4} `)
+console.log(`Pontos após Adição: ${pontos += 50}, subtração: ${pontos -= 30}, multiplicação: ${pontos *= 2}, divisão: ${pontos / 4} `)
 
 
 
@@ -133,6 +133,22 @@ console.log("_______________________________");
 // f) Incremente "nivel" três vezes usando ++nivel (prefixo) e exiba cada resultado.
 
 // → Seu código aqui:
+let vidas = 3
+console.log(vidas);
+vidas++
+console.log(vidas);
+vidas++
+console.log(vidas);
+vidas--
+console.log(vidas);
+let nivel = 1
+nivel++
+console.log(nivel);
+nivel++
+console.log(nivel);
+nivel++
+console.log(nivel);
+
 
 
 console.log("_______________________________");
@@ -150,6 +166,15 @@ console.log("_______________________________");
 // f) Use Math.min() para encontrar o menor entre 42, 17, 89, 5, 63. Exiba o resultado.
 
 // → Seu código aqui:
+let nota = 7.3
+console.log(`Math.round(${nota}) = ${Math.round(nota)}`);
+console.log(`Math.floor(${nota}) = ${Math.floor(nota)}`);
+console.log(`Math.ceil(${nota}) = ${Math.ceil(nota)}`);
+let temperatura = -12.5
+console.log(`Valor absoluto de ${temperatura} é ${Math.abs(temperatura)}`);
+console.log(`O maior número entre 42, 17, 89, 5, 63 é ${Math.max(42, 17, 89, 5, 63)}`);
+console.log(`O menor número entre 42, 17, 89, 5, 63 é ${Math.min(42, 17, 89, 5, 63)}`);
+
 
 
 console.log("_______________________________");
@@ -165,6 +190,13 @@ console.log("_______________________________");
 //    "Média: <media>" (com 2 casas decimais usando toFixed(2))
 
 // → Seu código aqui:
+let nota1 = lerTeclado.questionFloat("Digite a primeira nota: ");
+let nota2 = lerTeclado.questionFloat("Digite a segunda nota: ");
+let nota3 = lerTeclado.questionFloat("Digite a terceira nota: ");
+let media = (nota1 + nota2 + nota3) / 3;
+console.log(`Nota 1: ${nota1} | Nota 2: ${nota2} | Nota 3: ${nota3}`);
+console.log(`Média: ${media.toFixed(2)}`);
+
 
 
 console.log("_______________________________");
@@ -183,6 +215,12 @@ console.log("_______________________________");
 //    Use toFixed(2) em todos os valores.
 
 // → Seu código aqui:
+let totalCompra = lerTeclado.questionFloat("Digite o valor total da compra: ");
+let valorEntregue = lerTeclado.questionFloat("Digite o valor entregue pelo cliente (deve ser maior que o valor da compra): ");
+while (valorEntregue < totalCompra) {
+  console.log("Valor entregue deve ser maior que o valor da compra. Tente novamente.");
+  valorEntregue = lerTeclado.questionFloat("Digite o valor entregue pelo cliente (deve ser maior que o valor da compra): ");
+}
 
 
 console.log("_______________________________");
@@ -199,6 +237,13 @@ let notas = [7.5, 8.2, 6.5, 9.0];
 let idades = [15, 22, 30, 18, 25];
 
 // → Seu código aqui:
+
+let totalPrecos = precos.reduce((acumulador, preco) => acumulador + preco, 0);
+console.log(`Total dos preços: R$ ${totalPrecos.toFixed(2)}`);
+let mediaNotas = notas.reduce((acumulador, nota) => acumulador + nota, 0) / notas.length;
+console.log(`Média das notas: ${mediaNotas.toFixed(2)}`);
+console.log(`Maior idade: ${Math.max(...idades)} | Menor idade: ${Math.min(...idades)}`);
+
 
 
 console.log("_______________________________");
@@ -230,9 +275,22 @@ let turma = {
 
 // → Seu código aqui:
 
+notaAluno1 = lerTeclado.questionFloat(`Digite a primeira nota para ${turma.aluno1.nome}: `);
+notaAluno2 = lerTeclado.questionFloat(`Digite a primeira nota para ${turma.aluno2.nome}: `);
+notaAluno3 = lerTeclado.questionFloat(`Digite a primeira nota para ${turma.aluno3.nome}: `);
+turma.aluno1.notas.push(notaAluno1);
+turma.aluno2.notas.push(notaAluno2);
+turma.aluno3.notas.push(notaAluno3);
+let mediaAluno1 = turma.aluno1.notas.reduce((acumulador, nota) => acumulador + nota, 0) / turma.aluno1.notas.length;
+let mediaAluno2 = turma.aluno2.notas.reduce((acumulador, nota) => acumulador + nota, 0) / turma.aluno2.notas.length;
+let mediaAluno3 = turma.aluno3.notas.reduce((acumulador, nota) => acumulador + nota, 0) / turma.aluno3.notas.length;
+console.log(`Média de ${turma.aluno1.nome}: ${mediaAluno1.toFixed(2)}`);
+console.log(`Média de ${turma.aluno2.nome}: ${mediaAluno2.toFixed(2)}`);
+console.log(`Média de ${turma.aluno3.nome}: ${mediaAluno3.toFixed(2)}`);
+
 
 console.log("_______________________________");
 
 function newFunction() {
-    return 29;
+  return 29;
 }

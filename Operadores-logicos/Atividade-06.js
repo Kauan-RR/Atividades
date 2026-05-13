@@ -170,6 +170,13 @@ console.log("_______________________________");
 // c) Exiba a variável "diagnostico" com template literal mostrando a temperatura e o resultado do diagnóstico.
 
 // → Seu código aqui:
+let temperatura = 38.2;
+let diagnostico = temperatura >= 37.6 ? "Febre detectada" : "Temperatura normal";
+console.log(`Temperatura: ${temperatura}°C - ${diagnostico}`);
+
+
+
+
 
 
 console.log("_______________________________");
@@ -185,6 +192,10 @@ console.log("_______________________________");
 // c) Exiba a variável "statusMulta" com template literal mostrando a velocidade e o resultado da multa.
 
 // → Seu código aqui:
+let velocidade = 110;
+let limiteVelocidade = 100;
+let statusMulta = velocidade > limiteVelocidade ? "Multa aplicada" : "Velocidade regular";
+console.log(`Velocidade: ${velocidade} km/h - ${statusMulta}`);
 
 
 console.log("_______________________________");
@@ -201,6 +212,11 @@ console.log("_______________________________");
 // c) Exiba a variável "mensagem" com template literal.
 
 // → Seu código aqui:
+
+let ehEstudante = lerTeclado.keyInYN("Você é bolsista? ");
+let pagaMaisDeMil = lerTeclado.keyInYN("Você paga mais que R$ 1000,00 mensais pelo curso? ");
+let mensagem = ehEstudante && pagaMaisDeMil ? "Desconto aplicado!" : "Desconto não aplicado.";
+console.log(mensagem);
 
 
 console.log("_______________________________");
@@ -223,6 +239,20 @@ console.log("_______________________________");
 //    Caso contrário → "Entrada negada."
 
 // → Seu código aqui:
+let usuario2 = {
+    idade: lerTeclado.questionInt("Qual sua idade? "),
+    possuiIngresso: lerTeclado.keyInYN("Você possui ingresso? "),
+    ehAssociado: lerTeclado.keyInYN("Você é associado ao clube? ")
+};
+
+let verificacoes = {
+    podeEntrarNormal: (usuario2.idade >= 18 && usuario2.possuiIngresso) || usuario2.ehAssociado,
+    podeEntrarSocio: usuario2.possuiIngresso && usuario2.ehAssociado,
+    precisaAcompanhante: usuario2.idade < 18,
+    naoPodeEntrar: !usuario2.possuiIngresso && !usuario2.ehAssociado
+};
+let mensagemFinal = verificacoes.podeEntrarNormal || verificacoes.podeEntrarSocio ? "Entrada liberada!" : "Entrada negada.";
+console.log(mensagemFinal);
 
 
 console.log("_______________________________");
@@ -244,6 +274,22 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let produto = {
+    nome: lerTeclado.question("Nome do produto: "),
+    quantidadeEmEstoque: lerTeclado.questionInt("Quantidade em estoque: "),
+    estaAtivo: lerTeclado.keyInYN("O produto está ativo no sistema? ")
+};
+produto.temEstoque = produto.quantidadeEmEstoque > 0;
+produto.produtoDisponivel = produto.temEstoque && produto.estaAtivo;
+produto.produtoIndisponivel = !produto.temEstoque || !produto.estaAtivo;
+console.log(`Produto: ${produto.nome}`);
+console.log(`Quantidade em estoque: ${produto.quantidadeEmEstoque}`);
+console.log(`Produto ativo? ${produto.estaAtivo ? "Sim" : "Não"}`);
+console.log(`Tem estoque? ${produto.temEstoque ? "Sim" : "Não"}`);
+console.log(`Produto disponível? ${produto.produtoDisponivel ? "Sim" : "Não"}`);
+console.log(`Produto indisponível? ${produto.produtoIndisponivel ? "Sim" : "Não"}`);
+
+
 
 console.log("_______________________________");
 
@@ -263,6 +309,18 @@ console.log("_______________________________");
 // d) Exiba todos os resultados.
 
 // → Seu código aqui:
+
+let usuario3 = {
+    ehAdmin: lerTeclado.keyInYN("Você é administrador? "),
+    estaLogado: lerTeclado.keyInYN("Você está logado? "),
+}
+usuario3.contaAtiva = lerTeclado.keyInYN("Sua conta está ativa? ");
+usuario3.acessoSistema = usuario3.estaLogado && usuario3.contaAtiva;
+usuario3.acessoAdmin = usuario3.acessoSistema && usuario3.ehAdmin;
+usuario3.acessoNegado = !usuario3.estaLogado || !usuario3.contaAtiva;
+console.log(`Acesso ao sistema? ${usuario3.acessoSistema ? "Sim" : "Não"}`);
+console.log(`Acesso de administrador? ${usuario3.acessoAdmin ? "Sim" : "Não"}`);
+console.log(`Acesso negado? ${usuario3.acessoNegado ? "Sim" : "Não"}`);
 
 
 console.log("_______________________________");
@@ -287,5 +345,18 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let credenciaisSistema = {
+    usuario: "admin",
+    senha: "1234"
+};
+
+let usuarioDigitado = lerTeclado.question("Digite o usuário: ");
+let senhaDigitada = lerTeclado.question("Digite a senha: ");
+
+let usuarioCorreto = usuarioDigitado === credenciaisSistema.usuario;
+let senhaCorreta = senhaDigitada === credenciaisSistema.senha;
+let loginValido = usuarioCorreto && senhaCorreta;
+
+console.log(loginValido ? "Login realizado com sucesso!" : "Usuário ou senha incorretos.");
 
 console.log("_______________________________");

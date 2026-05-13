@@ -14,9 +14,9 @@
 
 // → Seu código aqui:
 
-const cores = ["azul","verde", "preto"]
+const cores = ["azul", "verde", "preto"]
 
-console.log(cores[2],cores[0]);
+console.log(cores[2], cores[0]);
 
 
 console.log("_______________________________");
@@ -31,14 +31,14 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-const cores1 = ["azul","verde", "preto"];
+const cores1 = ["azul", "verde", "preto"];
 
 cores1.push("yellow");
 
 console.log(cores1)
 
 
-const cores2 = ["azul","verde", "preto"];
+const cores2 = ["azul", "verde", "preto"];
 
 cores2.pop();
 
@@ -56,6 +56,10 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const number1 = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+console.log(number1.length, number1);
+
 
 console.log("_______________________________");
 
@@ -68,10 +72,14 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-const number = [10,9,8,7,6,5,4,3,2,1];
+const number = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+const string = ["azul", "verde", "preto"];
+const boolean = [true, false];
+const undefined1 = [undefined];
+const null1 = [null];
+const misto2 = ["faca", "banana", "colher", 50, 60, 70, 80,]
 
-
-console.log(number.length, number)
+console.log(number.length, number, string.length, string, boolean.length, boolean, undefined1.length, undefined1, null1.length, null1, misto2.length, misto2);
 
 
 console.log("_______________________________");
@@ -89,8 +97,9 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-const misto = ["faca","banana","colher", 50, 60, 70, 80,]
+const misto = ["faca", "banana", "colher", 50, 60, 70, 80,]
 
+console.log(misto);
 
 misto.pop();
 
@@ -98,12 +107,8 @@ misto.shift()
 
 console.log(misto)
 
+misto.push("carro")
 
-
-const misto1 = ["faca","banana","colher", 50, 60, 70, 80,]
-
-misto1.push("carro")
-
-console.log(misto1)
+console.log(misto)
 
 console.log("_______________________________");

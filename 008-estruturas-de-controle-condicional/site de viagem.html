@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voyager Pro - Plataforma Completa de Viagens 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ff6b00;
+            --primary-dark: #cc5500;
+            --dark: #0a0a0a;
+            --gray: #1f1f1f;
+            --light-gray: #2a2a2a;
+            --success: #28a745;
+            --danger: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--dark);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1469854523086-5c67551d6fe8?w=1920') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 120px 5% 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s;
+        }
+
+        .cta-btn {
+            background: var(--primary);
+            color: white;
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            animation: fadeInUp 1.2s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.08);
+            background: var(--primary-dark);
+        }
+
+        /* Quiz Section */
+        .quiz-section,
+        .dashboard-section,
+        .afiliados-section {
+            padding: 80px 5%;
+        }
+
+        .card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--gray);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        select,
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            background: var(--light-gray);
+            border: 1px solid #444;
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        select:focus,
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .btn-primary,
+        .btn-secondary,
+        .btn-success {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #444;
+            color: white;
+        }
+
+        /* Resultado */
+        #resultado {
+            display: none;
+            margin-top: 40px;
+            animation: fadeInUp 0.5s;
+        }
+
+        #destinoCard {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid var(--primary);
+        }
+
+        .destino-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        /* Plans */
+        .plans {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .plan {
+            background: var(--gray);
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 320px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .plan:hover {
+            transform: translateY(-10px);
+        }
+
+        .plan.pro {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+
+        .plan.pro::before {
+            content: "🔥 MAIS POPULAR";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+
+        /* Dashboard */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--gray);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .comissoes-table {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+
+        th {
+            color: var(--primary);
+        }
+
+        /* WhatsApp Widget */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            z-index: 999;
+        }
+
+        .whatsapp-widget:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-widget i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--gray);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #444;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            color: #888;
+            font-size: 1rem;
+        }
+
+        .tab.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+
+        .alert {
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .alert-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .alert-error {
+            background: var(--danger);
+            color: white;
+        }
+
+        .alert-info {
+            background: var(--primary);
+            color: white;
+        }
+
+        .copy-btn {
+            background: var(--primary);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo"><span>VOYAGER</span> PRO</div>
+        <div class="nav-links">
+            <a href="#" onclick="showSection('home')">Home</a>
+            <a href="#" onclick="showSection('quiz')">Quiz</a>
+            <a href="#" onclick="showSection('dashboard')">Minha Área</a>
+            <a href="#" onclick="showSection('afiliados')">Afiliados</a>
+            <button onclick="abrirModalAfiliados()"
+                style="background: var(--primary); padding: 8px 16px; border-radius: 8px;">
+                <i class="fas fa-user-plus"></i> Seja Afiliado
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div>
+            <h1>Descubra o Destino dos Seus Sonhos em 2026</h1>
+            <p>Quiz inteligente + Recomendações personalizadas + Ganhe comissões como afiliado</p>
+            <button class="cta-btn" onclick="showSection('quiz')">
+                Fazer o Quiz Gratuito →
+            </button>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="quiz-section" style="display: none;">
+        <div class="card">
+            <h2 style="text-align:center; margin-bottom:30px;">✈️ Encontre seu destino perfeito</h2>
+
+            <div class="form-group">
+                <label><i class="fas fa-user"></i> Nome completo *</label>
+                <input type="text" id="nome" placeholder="Seu nome">
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-envelope"></i> Email *</label>
+                <input type="email" id="email" placeholder="seu@email.com">
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-calendar"></i> Idade *</label>
+                <input type="number" id="idade" placeholder="Ex: 28">
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-wallet"></i> Orçamento da viagem *</label>
+                <select id="orcamento">
+                    <option value="">Selecione...</option>
+                    <option value="economico">💸 Econômico (até R$ 5.000)</option>
+                    <option value="moderado">💰 Moderado (R$ 5.000 - R$ 15.000)</option>
+                    <option value="luxo">💎 Luxo (acima de R$ 15.000)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-sun"></i> Clima preferido *</label>
+                <select id="clima">
+                    <option value="">Selecione...</option>
+                    <option value="tropical">🌴 Tropical / Praia</option>
+                    <option value="frio">❄️ Frio / Neve</option>
+                    <option value="temperado">🏛️ Temperado / Cultural</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-users"></i> Companhia de viagem *</label>
+                <select id="companhia">
+                    <option value="">Selecione...</option>
+                    <option value="sozinho">🚶 Sozinho(a)</option>
+                    <option value="casal">💑 Casal</option>
+                    <option value="familia">👨‍👩‍👧‍👦 Família</option>
+                    <option value="amigos">👥 Amigos</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-clock"></i> Duração da viagem *</label>
+                <select id="duracao">
+                    <option value="">Selecione...</option>
+                    <option value="curta">📅 3-5 dias</option>
+                    <option value="media">📅 6-10 dias</option>
+                    <option value="longa">📅 11+ dias</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-heart"></i> Tipo de experiência *</label>
+                <select id="experiencia">
+                    <option value="">Selecione...</option>
+                    <option value="aventura">🏔️ Aventura e natureza</option>
+                    <option value="cultura">🏛️ Cultura e história</option>
+                    <option value="relax">🧘 Relaxamento e spa</option>
+                    <option value="gastronomia">🍷 Gastronomia</option>
+                </select>
+            </div>
+
+            <button class="btn-primary" onclick="calcularDestinoCompleto()">
+                <i class="fas fa-magic"></i> Descobrir meu destino
+            </button>
+
+            <div id="resultado">
+                <div id="destinoCard">
+                    <h2>Olá, <span id="nomeResult"></span>!</h2>
+                    <p id="infoResult"></p>
+                    <h3>✨ Seu destino ideal para 2026:</h3>
+                    <h2 id="destinoFinal" style="color:#ff6b00; font-size:2rem; margin:20px 0;"></h2>
+                    <img id="destinoImagem" class="destino-img" src="" alt="Destino">
+                    <div id="dicaOrcamento"
+                        style="background:#2a2a2a; padding:15px; border-radius:12px; margin:20px 0;"></div>
+                    <div id="linkWhatsApp" style="margin: 15px 0;"></div>
+                    <button class="btn-success" onclick="reservarAgora()">
+                        <i class="fas fa-hotel"></i> Reservar agora com Booking.com
+                    </button>
+                    <button class="btn-secondary" onclick="enviarWhatsApp()"
+                        style="margin-top: 10px; background: #25D366;">
+                        <i class="fab fa-whatsapp"></i> Receber no WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard-section" style="display: none;">
+        <div class="card">
+            <h2 style="text-align:center; margin-bottom:30px;">
+                <i class="fas fa-chart-line"></i> Meu Dashboard
+            </h2>
+
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('perfil')">👤 Meu Perfil</button>
+                <button class="tab" onclick="switchTab('historico')">📊 Histórico de Viagens</button>
+                <button class="tab" onclick="switchTab('comissoes')">💰 Minhas Comissões</button>
+            </div>
+
+            <div id="perfil" class="tab-content active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-trophy"></i>
+                        <div class="stat-number" id="totalViagens">0</div>
+                        <div>Viagens realizadas</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-globe"></i>
+                        <div class="stat-number" id="totalDestinos">0</div>
+                        <div>Destinos visitados</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-dollar-sign"></i>
+                        <div class="stat-number" id="totalEconomizado">R$ 0</div>
+                        <div>Economizado</div>
+                    </div>
+                </div>
+                <div id="perfilInfo"></div>
+            </div>
+
+            <div id="historico" class="tab-content">
+                <div id="historicoLista"></div>
+            </div>
+
+            <div id="comissoes" class="tab-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="stat-number" id="totalComissoes">R$ 0</div>
+                        <div>Comissões totais</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-number" id="totalIndicacoes">0</div>
+                        <div>Indicações</div>
+                    </div>
+                </div>
+                <div id="comissoesLista"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programa de Afiliados -->
+    <section id="afiliados" class="afiliados-section" style="display: none;">
+        <div class="card">
+            <h2 style="text-align:center; margin-bottom:30px;">
+                <i class="fas fa-handshake"></i> Programa de Afiliados Voyager Pro
+            </h2>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-percent"></i>
+                    <div class="stat-number">25-40%</div>
+                    <div>Comissão por venda</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-link"></i>
+                    <div class="stat-number" id="meuLinkAfiliado">Carregando...</div>
+                    <div>Seu link único</div>
+                    <button class="copy-btn" onclick="copiarLinkAfiliado()">Copiar</button>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-simple"></i>
+                    <div class="stat-number" id="visitasAfiliado">0</div>
+                    <div>Visitas no seu link</div>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" onclick="switchAfiliadoTab('ganhos')">💰 Meus Ganhos</button>
+                <button class="tab" onclick="switchAfiliadoTab('indicados')">👥 Clientes Indicados</button>
+                <button class="tab" onclick="switchAfiliadoTab('materiais')">📚 Materiais Promocionais</button>
+            </div>
+
+            <div id="ganhos" class="tab-content active">
+                <div id="ganhosLista"></div>
+            </div>
+
+            <div id="indicados" class="tab-content">
+                <div id="indicadosLista"></div>
+            </div>
+
+            <div id="materiais" class="tab-content">
+                <div class="alert alert-info">
+                    <strong>📢 Banners Promocionais</strong>
+                </div>
+                <div style="background: #2a2a2a; padding: 20px; border-radius: 12px; margin: 10px 0;">
+                    <p>Código para seu site/blog:</p>
+                    <textarea rows="3" style="width: 100%; background: #111; color: white; padding: 10px;" readonly
+                        onclick="this.select()">
+&lt;a href="https://voyagerpro.com/ref/SEU_ID"&gt;
+  &lt;img src="https://voyagerpro.com/banner-afiliado.jpg" alt="Voyager Pro"&gt;
+&lt;/a&gt;
+                </textarea>
+                </div>
+                <div class="alert alert-info" style="margin-top: 20px;">
+                    <strong>📱 Posts para redes sociais</strong><br>
+                    "Descobri meu destino dos sonhos com o Voyager Pro! Faça o quiz grátis: [SEU LINK]"
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Widget -->
+    <div class="whatsapp-widget" onclick="abrirWhatsAppSuporte()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Modal Afiliados -->
+    <div id="modalAfiliados" class="modal">
+        <div class="modal-content">
+            <h2><i class="fas fa-rocket"></i> Torne-se um Afiliado</h2>
+            <p>Ganhe comissões indicando o Voyager Pro!</p>
+            <input type="text" id="nomeAfiliado" placeholder="Nome completo" style="width:100%; margin: 10px 0;">
+            <input type="email" id="emailAfiliado" placeholder="Email" style="width:100%; margin: 10px 0;">
+            <input type="text" id="telefoneAfiliado" placeholder="WhatsApp (opcional)"
+                style="width:100%; margin: 10px 0;">
+            <button class="btn-primary" onclick="inscreverAfiliado()">Quero ser afiliado</button>
+            <button class="btn-secondary" onclick="fecharModal()">Fechar</button>
+            <div id="modalMsg"></div>
+        </div>
+    </div>
+
+    <script>
+        // ============ SISTEMA COMPLETO COM LOCALSTORAGE ============
+
+        // Inicializar dados
+        function initData() {
+            if (!localStorage.getItem('voyager_usuarios')) {
+                localStorage.setItem('voyager_usuarios', JSON.stringify([]));
+            }
+            if (!localStorage.getItem('voyager_afiliados')) {
+                localStorage.setItem('voyager_afiliados', JSON.stringify([]));
+            }
+            if (!localStorage.getItem('voyager_comissoes')) {
+                localStorage.setItem('voyager_comissoes', JSON.stringify([]));
+            }
+            if (!localStorage.getItem('voyager_indicacoes')) {
+                localStorage.setItem('voyager_indicacoes', JSON.stringify([]));
+            }
+            if (!localStorage.getItem('usuario_atual')) {
+                // Usuário demo
+                const demoUser = {
+                    id: 'demo123',
+                    nome: 'Viajante Demo',
+                    email: 'demo@voyager.com',
+                    viagens: [],
+                    linkAfiliado: 'VOYAGER_DEMO_' + Date.now()
+                };
+                localStorage.setItem('usuario_atual', JSON.stringify(demoUser));
+                let usuarios = JSON.parse(localStorage.getItem('voyager_usuarios'));
+                usuarios.push(demoUser);
+                localStorage.setItem('voyager_usuarios', JSON.stringify(usuarios));
+            }
+        }
+
+        initData();
+
+        // Destinos database
+        const destinosDatabase = {
+            tropical: {
+                aventura: { nome: "🏄‍♂️ Costa Rica", imagem: "https://images.unsplash.com/photo-1536700503339-1e4bcd2075e8?w=600", pais: "Costa Rica", precoMedio: 8500 },
+                cultura: { nome: "🎭 Salvador, BA", imagem: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=600", pais: "Brasil", precoMedio: 3500 },
+                relax: { nome: "🧘 Maldivas", imagem: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600", pais: "Maldivas", precoMedio: 25000 },
+                gastronomia: { nome: "🍤 Recife, PE", imagem: "https://images.unsplash.com/photo-1599113593750-82caf85f0dd4?w=600", pais: "Brasil", precoMedio: 4000 }
+            },
+            frio: {
+                aventura: { nome: "⛷️ Bariloche", imagem: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600", pais: "Argentina", precoMedio: 12000 },
+                cultura: { nome: "🏰 Ushuaia", imagem: "https://images.unsplash.com/photo-1583448892230-78aa5b93fc01?w=600", pais: "Argentina", precoMedio: 10000 },
+                relax: { nome: "♨️ Termas de Chillán", imagem: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600", pais: "Chile", precoMedio: 9000 },
+                gastronomia: { nome: "🍷 Santiago", imagem: "https://images.unsplash.com/photo-1618356562578-3e83b8ad1f5c?w=600", pais: "Chile", precoMedio: 8000 }
+            },
+            temperado: {
+                aventura: { nome: "🏔️ Chapada dos Veadeiros", imagem: "https://images.unsplash.com/photo-1588364777583-34b144e3ea7e?w=600", pais: "Brasil", precoMedio: 3000 },
+                cultura: { nome: "🏛️ Lisboa, Portugal", imagem: "https://images.unsplash.com/photo-1585208798174-6cedd86e407a?w=600", pais: "Portugal", precoMedio: 15000 },
+                relax: { nome: "🌿 Gramado, RS", imagem: "https://images.unsplash.com/photo-1590504574048-8abddb9bf5b6?w=600", pais: "Brasil", precoMedio: 5000 },
+                gastronomia: { nome: "🍷 Mendoza", imagem: "https://images.unsplash.com/photo-1579547985800-f206de06c71c?w=600", pais: "Argentina", precoMedio: 7000 }
+            }
+        };
+
+        function calcularDestinoCompleto() {
+            const nome = document.getElementById("nome").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const idade = document.getElementById("idade").value;
+            const orcamento = document.getElementById("orcamento").value;
+            const clima = document.getElementById("clima").value;
+            const companhia = document.getElementById("companhia").value;
+            const duracao = document.getElementById("duracao").value;
+            const experiencia = document.getElementById("experiencia").value;
+
+            if (!nome || !email || !idade || !orcamento || !clima || !companhia || !duracao || !experiencia) {
+                alert("❌ Por favor, preencha todos os campos!");
+                return;
+            }
+
+            if (idade < 1 || idade > 120) {
+                alert("❌ Idade inválida!");
+                return;
+            }
+
+            if (!email.includes('@')) {
+                alert("❌ Email inválido!");
+                return;
+            }
+
+            // Buscar destino
+            const destino = destinosDatabase[clima][experiencia];
+            const usuarioAtual = JSON.parse(localStorage.getItem('usuario_atual'));
+
+            // Calcular preço baseado no orçamento
+            let precoFinal = destino.precoMedio;
+            if (orcamento === "economico") precoFinal = precoFinal * 0.7;
+            if (orcamento === "luxo") precoFinal = precoFinal * 1.5;
+
+            // Dicas personalizadas
+            let dica = "";
+            if (companhia === "casal") dica = "💑 Perfeito para casal! Considere pacotes com jantar romântico incluso.";
+            else if (companhia === "familia") dica = "👨‍👩‍👧‍👦 Ótimo para família! Verifique hotéis com estrutura kids.";
+            else if (companhia === "amigos") dica = "👥 Viajar com amigos? Alugue um Airbnb inteiro para mais economia!";
+            else dica = "🚶 Viajar sozinho? Hostels e grupos de viagem são ótimas opções!";
+
+            if (duracao === "longa") dica += " ⏰ Como a viagem é longa, considere um seguro viagem completo.";
+
+            // Salvar viagem no histórico
+            const viagem = {
+                id: Date.now(),
+                destino: destino.nome,
+                pais: destino.pais,
+                data: new Date().toLocaleDateString(),
+                preco: precoFinal,
+                orcamento: orcamento,
+                clima: clima,
+                imagem: destino.imagem
+            };
+
+            let usuario = JSON.parse(localStorage.getItem('usuario_atual'));
+            if (!usuario.viagens) usuario.viagens = [];
+            usuario.viagens.push(viagem);
+            localStorage.setItem('usuario_atual', JSON.stringify(usuario));
+
+            // Atualizar usuários
+            let usuarios = JSON.parse(localStorage.getItem('voyager_usuarios'));
+            const index = usuarios.findIndex(u => u.id === usuario.id);
+            if (index !== -1) usuarios[index] = usuario;
+            localStorage.setItem('voyager_usuarios', JSON.stringify(usuarios));
+
+            // Mostrar resultado
+            document.getElementById("nomeResult").textContent = nome;
+            document.getElementById("infoResult").innerHTML = `📍 ${destino.pais} | ${duracao === 'curta' ? '3-5 dias' : duracao === 'media' ? '6-10 dias' : '11+ dias'} | 💰 ${formatMoney(precoFinal)}`;
+            document.getElementById("destinoFinal").innerHTML = destino.nome;
+            document.getElementById("destinoImagem").src = destino.imagem;
+            document.getElementById("dicaOrcamento").innerHTML = `<strong>${dica}</strong>`;
+
+            // Link WhatsApp
+            const msgWhatsApp = `Olá! Fiz o quiz no Voyager Pro e meu destino ideal é ${destino.nome} em ${destino.pais}! Quero saber mais sobre pacotes e hospedagem.`;
+            const linkWA = `https://wa.me/5511999999999?text=${encodeURIComponent(msgWhatsApp)}`;
+            document.getElementById("linkWhatsApp").innerHTML = `<a href="${linkWA}" target="_blank" style="color: #25D366;">📱 Fale com um consultor no WhatsApp</a>`;
+
+            document.getElementById("resultado").style.display = "block";
+            document.getElementById("resultado").scrollIntoView({ behavior: 'smooth' });
+
+            // Registrar indicação se veio de link de afiliado
+            const urlParams = new URLSearchParams(window.location.search);
+            const ref = urlParams.get('ref');
+            if (ref) {
+                let comissoes = JSON.parse(localStorage.getItem('voyager_comissoes'));
+                comissoes.push({
+                    id: Date.now(),
+                    afiliadoId: ref,
+                    cliente: nome,
+                    valor: precoFinal * 0.3,
+                    data: new Date().toISOString(),
+                    status: 'pendente'
+                });
+                localStorage.setItem('voyager_comissoes', JSON.stringify(comissoes));
+            }
+        }
+
+        function reservarAgora() {
+            window.open("https://www.booking.com/index.html?aid=SEU_ID_AFILIADO", "_blank");
+        }
+
+        function enviarWhatsApp() {
+            const destino = document.getElementById("destinoFinal").innerText;
+            const msg = `Olá! Fiz o quiz no Voyager Pro e meu destino ideal é ${destino}! Quero saber mais sobre hospedagem e passeios.`;
+            window.open(`https://wa.me/5511999999999?text=${encodeURIComponent(msg)}`, "_blank");
+        }
+
+        function abrirWhatsAppSuporte() {
+            window.open("https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre o Voyager Pro", "_blank");
+        }
+
+        // Dashboard
+        function carregarDashboard() {
+            const usuario = JSON.parse(localStorage.getItem('usuario_atual'));
+            if (!usuario) return;
+
+            const viagens = usuario.viagens || [];
+            document.getElementById("totalViagens").textContent = viagens.length;
+
+            const destinosUnicos = [...new Set(viagens.map(v => v.destino))];
+            document.getElementById("totalDestinos").textContent = destinosUnicos.length;
+
+            const totalGasto = viagens.reduce((sum, v) => sum + v.preco, 0);
+            document.getElementById("totalEconomizado").textContent = formatMoney(totalGasto * 0.2);
+
+            // Perfil
+            document.getElementById("perfilInfo").innerHTML = `
+                    <div class="alert alert-info">
+                        <strong>👤 ${usuario.nome}</strong><br>
+                        📧 ${usuario.email}<br>
+                        🔗 Link de afiliado: <strong>${usuario.linkAfiliado || 'Gerando...'}</strong>
+                        <button class="copy-btn" onclick="copiarLinkAfiliado()">Copiar</button>
+                    </div>
+                `;
+        }

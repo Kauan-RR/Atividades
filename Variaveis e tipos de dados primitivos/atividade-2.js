@@ -18,7 +18,7 @@ var nomePessoa = "Kauan"
 let idade = 21
 let linguagem = 'ler manga ou manhwa'
 let tampletestring = `Eu leio ${linguagem} quase todos os dias`
-console.log(nomePessoa,idade);
+console.log(nomePessoa, idade);
 console.log(linguagem);
 console.log(tampletestring)
 
@@ -33,6 +33,13 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let cidade1 = 'São Paulo'
+let temperatura = 30
+let templatestring2 = `Hoje em ${cidade1} está fazendo ${temperatura}°C, perfeito para ir a praia.`
+console.log(cidade1)
+console.log(temperatura)
+console.log(templatestring2)
+
 
 console.log("_______________________________");
 
@@ -43,7 +50,7 @@ console.log("_______________________________");
 // Para cada uma, exiba uma frase usando template literal que diga o valor e o tipo.
 
 // → Seu código aqui:
-let linguagem2 ='batata';
+let linguagem2 = 'batata';
 let number = 45
 let eucomiabatata = true
 let semvalor
@@ -72,7 +79,7 @@ let linguagem3 = 'anos,'
 let cidade = 'centralcity,'
 let missão = 'salvar o mundo.'
 let templatestring = `${personagem}, ${idade1} years era um cientista forense da policia de ${cidade}, conhecido por ser lento e metodico. Certa noite, um raio atingiu seu labolatorio, banhando-o em produtos quimicos. ele sobreviveu e ganhaou super velocidade, assumindo o nome de Flash em homenagem ao seu hetoi de infancia, Jay Garrick.`
-console.log(personagem, idade1, linguagem3, cidade, missão, templatestring);  
+console.log(personagem, idade1, linguagem3, cidade, missão, templatestring);
 
 
 console.log("_______________________________");
@@ -88,7 +95,7 @@ console.log("_______________________________");
 let nomepessoa2 = 'Kauan';
 let objetivo = "Estudar muito e conseguir uma vaga de dev,"
 let templatestring1 = `Você vai ${objetivo} você tem o potencial necessario para isso, não desista apesar das adversidades, se Deus te permitiu sonhar e porque ele sabe que você consgue.  `
-console.log(nomepessoa2, objetivo, templatestring1) 
+console.log(nomepessoa2, objetivo, templatestring1)
 
 
 console.log("_______________________________");
@@ -104,24 +111,24 @@ console.log(
 
 
     `
-=========================================
-            Sistema do usuario
-=========================================
-1   -   Ver Perfil
-2   -   Editar Perfil
-3   -   Configurações
-4   -   Notificações
-5   -   Relatórios
-6   -   Ajuda
-7   -   Sobre o Sistema
-0   -   Sair
-=========================================
-Digite o número da opção desejada
-=========================================
+\n=========================================
+           Sistema do usuario
+\n=========================================
+\n1   -   Ver Perfil
+\n2   -   Editar Perfil
+\n3   -   Configurações
+\n4   -   Notificações
+\n5   -   Relatórios
+\n6   -   Ajuda
+\n7   -   Sobre o Sistema
+\n0   -   Sair
+\n=========================================
+\nDigite o número da opção desejada
+\n=========================================
 
 `
 );
-    
+
 
 
 
