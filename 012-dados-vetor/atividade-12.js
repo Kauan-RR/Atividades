@@ -187,5 +187,80 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const lerTeclado = require('readline-sync');
+
+const tabuleiro = [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0]
+];
+
+let rodando = true;
+let jogador = "X";
+
+do {
+  console.log(tabuleiro[0]);
+  console.log(tabuleiro[1]);
+  console.log(tabuleiro[2]);
+
+  let l = lerTeclado.question("Jogador " + jogador + " - Linha: ");
+  let c = lerTeclado.question("Jogador " + jogador + " - Coluna: ");
+
+  if (tabuleiro[l][c] === 0) {
+    tabuleiro[l][c] = jogador;
+
+    // Checa linhas e colunas direto em um for só
+    for (let i = 0; i < 3; i++) {
+      if (tabuleiro[i][0] !== 0 && tabuleiro[i][0] === tabuleiro[i][1] && tabuleiro[i][1] === tabuleiro[i][2]) {
+        console.log("Jogador " + jogador + " ganhou!");
+        rodando = false;
+      }
+      if (tabuleiro[0][i] !== 0 && tabuleiro[0][i] === tabuleiro[1][i] && tabuleiro[1][i] === tabuleiro[2][i]) {
+        console.log("Jogador " + jogador + " ganhou!");
+        rodando = false;
+      }
+    }
+
+    // Checa as diagonais
+    if (tabuleiro[0][0] !== 0 && tabuleiro[0][0] === tabuleiro[1][1] && tabuleiro[1][1] === tabuleiro[2][2]) {
+      console.log("Jogador " + jogador + " ganhou!");
+      rodando = false;
+    }
+    if (tabuleiro[0][2] !== 0 && tabuleiro[0][2] === tabuleiro[1][1] && tabuleiro[1][1] === tabuleiro[2][0]) {
+      console.log("Jogador " + jogador + " ganhou!");
+      rodando = false;
+    }
+
+    // Se o jogo ainda nao acabou, ve se deu velha
+    if (rodando === true) {
+      let temZero = false;
+      for (let linha of tabuleiro) {
+        for (let casa of linha) {
+          if (casa === 0) {
+            temZero = true;
+          }
+        }
+      }
+
+      if (temZero === false) {
+        console.log("Deu velha!");
+        rodando = false;
+      }
+    }
+
+    // Só muda o jogador se ninguém tiver ganho ainda
+    if (rodando === true) {
+      if (jogador === "X") {
+        jogador = "O";
+      } else {
+        jogador = "X";
+      }
+    }
+
+  } else {
+    console.log("Ja tem coisa ai! Escolhe outra.");
+  }
+
+} while (rodando);
 
 console.log("_______________________________");
